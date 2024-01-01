@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleafe.org">
+<head>
+    <title>Customer confirmation</title>
+</head>
+<body>
+<h2>
+  Your details are confirmed
+</h2>
+
+Your are : <span th:text="${customer.firstName} + ' ' + ${customer.lastName}" />
+<br><br>
+your free passes are: <span th:text="${customer.freePass}" />
+<br><br>
+your postal code: <span th:text="${customer.postalCode}" />
+<br><br>
+Course: <span th:text="${customer.course}" />
+</body>
+</html>
