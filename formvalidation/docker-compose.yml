@@ -1,0 +1,8 @@
+services:
+  spring-mvc-form-validation:
+    image: jawaharp/spring-mvc:form-validation
+    environment:
+      - PORT=8080
+    container_name: spring-mvc-form-validation
+    ports:
+      - 8080:8080

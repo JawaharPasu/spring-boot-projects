@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+  labels:
+    appgroup: spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-mvc
+  template:
+    metadata:
+      name: spring-mvc-form-validation
+      labels:
+        app: spring-mvc
+    spec:
+      containers:
+        - name: spring-mvc-form-validation
+          image: jawaharp/spring-mvc:form-validation
+          env:
+            - name: PORT
+              # value: '8080'
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-env
+                  key: port
+

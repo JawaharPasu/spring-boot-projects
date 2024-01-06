@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-service
+  labels:
+    appgroup: spring
+spec:
+  selector:
+    app: spring-mvc
+  type: LoadBalancer
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
