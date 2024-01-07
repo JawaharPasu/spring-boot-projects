@@ -1,8 +1,12 @@
 services:
-  spring-mvc-form-validation:
-    image: jawaharp/spring-mvc:form-validation
+  azuresqledge:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    cap_add:
+      - SYS_PTRACE
     environment:
-      - PORT=8080
-    container_name: spring-mvc-form-validation
+      - '''ACCEPT_EULA=1'''
+      - '''MSSQL_SA_PASSWORD=your_password123'''
+      - '''MSSQL_PID=Premium'''
+    container_name: azuresqledge
     ports:
-      - 8080:8080
+      - 1433:1433
