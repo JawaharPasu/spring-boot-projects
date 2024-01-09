@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thymeleafcrud-deployment
+  labels:
+    appgroup: spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thymeleafcrud
+  template:
+    metadata:
+      name: thymeleafcrud
+      labels:
+        app: thymeleafcrud
+    spec:
+      containers:
+        - name: thymeleafcrud
+          image: jawaharp/spring-mvc:latest
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: '8090'
+            - name: DB_URL
+              value: 'host.docker.internal'
+            - name: DB_USER
+              value: 'sa'
+            - name: DB_PASSWORD
+              value: 'your_password123'
