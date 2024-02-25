@@ -60,4 +60,12 @@ public class DemoSpringSecurity {
                         configurer.accessDeniedPage("/accessDenied"));
         return  http.build();
     }
+
+    /*@Bean
+    public UserDetailsManager userDetailsManager(DataSource dataSource) throws Exception {
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+        jdbcUserDetailsManager.setUsersByUsernameQuery("select username,password,enabled from users where username=?");
+        jdbcUserDetailsManager.setAuthoritiesByUsernameQuery("select username,authority from authorities where username=?");
+        return jdbcUserDetailsManager;
+    }*/
 }
